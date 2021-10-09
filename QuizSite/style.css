@@ -1,0 +1,14 @@
+body{
+  margin: 10px 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.perguntas{
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+
+}
