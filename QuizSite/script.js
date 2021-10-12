@@ -37,7 +37,7 @@ const in_c = document.getElementById("c");
 const in_d = document.getElementById("d");
 const l_a = document.getElementById("l_a");
 const l_b = document.getElementById("l_b");
-const inputs = [in_a, in_b];
+const inputs = [in_a, in_b, in_c,in_d];
 const a = "a";
 let score = 0;
 let next = 0;
@@ -50,7 +50,8 @@ btn.addEventListener("click",function(){
 if(next < perguntas.length){
   controler();
   load();
-} else{
+} else if(next <= perguntas.length){
+  controler();
   alert("Concluiu o Quizz. Você fez: " + score + " pontos!");
 }
 next++
@@ -75,44 +76,12 @@ function load(){
 
 function controler(){
   quesAt = perguntas[at];
-  if(in_a.checked && in_a.value == quesAt.correta){
-    score++;
-    at++;
-  }
-
-  if(in_a.checked && in_a.value != quesAt.correta){
-    at++;
-  }
-
-
-  if(in_b.checked && in_b.value == quesAt.correta){
-    score++;
-    at++
-  }
-
-  if(in_b.checked && in_b.value != quesAt.correta){
-    at++;
-  }
-
-  if(in_c.checked && in_c.value == quesAt.correta){
-    score++;
-    at++
-  }
-
-  if(in_c.checked && in_c.value != quesAt.correta){
-    at++;
-  }
-
-  if(in_d.checked && in_d.value == quesAt.correta){
-    score++;
-    at++
-  }
-
-  if(in_d.checked && in_d.value != quesAt.correta){
-    at++;
-  }
-
-
+  inputs.forEach(function(input){
+    if(input.checked && input.value == quesAt.correta){
+      score++;
+      at++;
+    }
+  });
 }//Fim Função
 
 
